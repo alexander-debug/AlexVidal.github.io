@@ -1,0 +1,1024 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    background-color: #05001b;
+    /* box-sizing:border-box; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;/*pone negrita a las palabras*/
+}
+html{
+    scroll-behavior: smooth;/*scroll para desplazamiento 
+    del menu como si se estuviera moviendo*/
+}
+.margen-container{
+    margin: 0px 10%;
+    /* max-width: 1080px; */
+    /*El maximo de zoom que alcanza*/
+    /* margin: auto;automatico el margen */
+}
+
+/* ----------------------Comienza el encabezado */
+.header{
+    margin: 0px;
+    height: 70px;/*alto del menu*/
+    background-color: #05001b;
+    z-index: 100;/*posicion superior a todas*/
+    position: sticky;/*es fijo hasta que alcanza el limite de su padre*/
+    top: 0;/*arriba comenzara*/
+}
+.container{
+    display: flex;/*para que no este en column si no en fila*/
+    justify-content: space-between;/*separa los hijos*/
+    align-items: center;/*alinea la columna*/
+    height: inherit;/*el alto lo hereda del padre osea header*/
+    
+}
+nav ul li a{
+    list-style: none;/*no quiere mostrar ningun marcador o punto en el elemento lista*/
+    text-decoration: none; /*se usa para establecer fomato de texto subrayado pero con none 
+    no quiere que tenta un formato*/
+  font-size: 18px;/*tamaño de letra*/
+  text-transform: uppercase;/*transforma toda la letra 
+  uppercase mayuscula*/
+  font-family: 'Fjalla One', sans-serif;/*tipo de letra*/
+}
+
+
+.bd-grid{
+    margin-left: 1.5rem;
+    /* da margin a lado derecho al mostrar el menu hamburguesa */
+}
+
+.Header-Logo p{
+    font-family: 'Fjalla One', sans-serif;/*tipo de letra*/
+    font-weight: normal;/*pone negrita a las palabras*/
+    font-size: 30px; /*cambiala el tamaño de la letra*/
+    height: inherit;/*el alto lo hereda del padre*/
+    align-items: center;/*alineamiento vertical solo idal/>*/
+    display: flex;
+    margin: 0px;
+}
+.Header-Logo p span{
+    color: #5e17eb;/*color*/
+    height: inherit;/*lo hereda del padre*/
+    align-items: center;/*aliniamiento vertical solo AlexV*/
+    display: flex;
+}
+.Header-Logo P::before{
+    /* before: el inicio
+    son pseudo elemento donde no que 
+    no existen pero podemos fingir que existen */
+    content: "< ";/*para que aparezca se usa content*/
+    color: #5e17eb;
+    height: inherit;/*heredado del padre*/
+    align-items: center;
+    display: flex;/*para que baje*/
+}
+.Header-Logo p::after{
+    /* after: el final se pone en un elemento osea parafo
+    son pseudo elemento donde no que 
+    no existen pero podemos fingir que existen*/
+    content: " />";
+    color: #5e17eb;
+}
+@media screen and (max-width: 1150px){
+    .header{
+        padding: 0 35px;
+    }
+}
+/* ====================hamburguesa============================= */
+.hamburguesa{
+    z-index: 200;/*para que me muestre encima de todo*/
+}
+.hamburguesa button{
+    background: none;/*lo esconde*/
+    border: 0;
+    cursor: pointer;/*para que me salga la mano al apuntarlo*/
+    padding: 0;
+    width: 60px;
+    height: 60px;
+
+}
+.hamburguesa button span{
+    border-radius: 5px;/*borde en forma de radio*/
+    background: white;
+    display: block;/*me ponga en columna*/
+    width: 60%;
+    margin: 5px auto;
+    height: 2px;
+/* correr la animacion y que se quede hasta que aga click */
+animation-duration: 1s;
+animation-fill-mode: forwards;
+/* ------------ */
+}
+#hamburguesa button.open .top-line{
+    animation-name: top-line-animation;
+}
+#hamburguesa button.open .middle-line{
+    animation-name: middle-line-animation;
+}
+#hamburguesa button.open .bottom-line{
+    animation-name: bottom-line-animation;
+}
+#hamburguesa button .top-line{
+    animation-name: top-line-animation-close;
+}
+#hamburguesa button .middle-line{
+    animation-name: middle-line-animation-close;
+}
+#hamburguesa button .bottom-line{
+    animation-name: bottom-line-animation-close;
+}
+
+@keyframes top-line-animation{
+50%, 100%{
+    margin: 0 auto;
+    transform: translateY(2px) rotate(-45deg);
+}
+}
+@keyframes bottom-line-animation{
+    50%, 100%{
+        margin: 0 auto;
+        transform: translateY(-2px) rotate(45deg);
+    }
+} 
+@keyframes middle-line-animation{
+    20%, 100%{
+        margin: 0 auto;
+        width: 0;
+        opacity: 0;
+    }
+}
+@keyframes top-line-animation-close{
+    0%{
+        margin: 0 auto;
+        transform: translateY(2px) rotate(-45deg);
+    }
+    50%, 100%{
+        margin: 5px auto;
+        transform: translateY(0px) rotate(0deg);
+    
+    }
+    }
+    
+@keyframes middle-line-animation-close{
+    0%{
+        margin: 0 auto;
+        width: 0;
+        opacity: 0;
+    }
+    20%, 100%{
+        margin: 0 auto;
+        width: 60%;
+        opacity: 1;
+    }
+}
+@keyframes bottom-line-animation-close{
+    0%{
+        margin: 0 auto;
+        transform: translateY(-2px) rotate(45deg);
+    }
+    50%, 100%{
+        margin: 5px auto;
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* =========================NAV=============================== */
+
+/* @media screen and (max-width: 980px){
+    .nav_menu ul li a{
+        font-size: 15px;
+    }
+} */
+/* desde 914 para abajo */
+@media screen and (max-width: 980px){
+    .nav{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background-color: #05001b;
+        color: #E6E7E9;
+        width: 100%;
+        height: 100vh;
+        padding:  1.5em 0;
+        z-index: 100;
+        transition: .5s; 
+    }
+    .nav_name{
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .nav_list{
+        list-style: none;
+    }
+    .nav_item{
+        margin: 0 .25rem;
+        padding: .5rem .8rem;
+        width: 71px;
+        display: flex;
+    justify-content: center;
+        border-radius: .25rem;
+    }
+    .nav_item:hover{
+        background-color: #5e17eb;/*cuando apunto me muestra este color*/
+    }
+    .active{
+        background-color: #5e17eb;/*me activa este color*/
+        color: #E6E7E9;
+    }
+}
+.close{
+    position: absolute;
+    right: 1.5rem;
+}
+.nav_img{
+    display: flex;
+    justify-content: center;
+    padding-top: .25rem;
+    margin-bottom: .8rem;
+    width: 56px;
+    height: 56px;
+    background-color: #5e17eb;
+    border-radius: 50%;
+    overflow: hidden;/*para que no se desborde*/
+}
+.nav_img img{
+    width: 46px;/*ancho*/
+}
+.nav_name{
+    display: block;
+    color:#E6E7E9;
+}
+
+.nav_profesion{
+    font-size: .875rem;
+}
+.nav_item{
+    margin: 2.5rem 0;
+}
+.nav_item a{
+    color:#E6E7E9;
+}
+
+.nav_social_icon{
+    font-size: 1.2rem;
+    color:#E6E7E9;
+    margin-right: 1rem;
+}
+.nav_social_icon:hover{
+    color: #5e17eb;
+}
+/* APARECER MENU */
+.show{
+    left: 0;
+}
+/* ACTIVE MENU */
+.active{
+    color: #5e17eb;
+}
+
+/* ======================MEDIA QUERIES======================= */
+/* desde 914 para arriba lo toma */
+@media screen and (min-width: 980px) {
+    body {
+        margin: 0;
+      }
+    .nav_social, .hamburguesa, .nav_perfil, .nav_profesion {
+        display: none;
+    }
+        .nav_list{
+        display: flex;
+        list-style: none;
+    }
+    .nav_item{
+        margin: 0 .25rem;
+        padding: .5rem .8rem;
+        border-radius: .25rem;
+    }
+
+.nav_item:hover{
+    background-color: #5e17eb;
+}
+.active{
+    background-color: #5e17eb;
+    color: #E6E7E9;
+}
+}   
+
+/*------------------------comienza la seccion principal */
+
+.Home{
+    padding: 0px 0px 80px 0px; 
+}
+.Home-Container{
+    /* min-height: 90vh; */
+    min-height: 560px;
+    /*altura del home*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home-Container img{
+    border-radius: 50%;
+    object-fit: cover;
+    /* la imagen lo aclara cuando se distorciona distorciona */
+    margin-right: 100px;
+border: 2PX solid #fff;
+} 
+
+.Home-Title h3{
+    font-size: 200%;/*tamaño de la letra*/
+    font-weight: normal;/*pone la letra en negrita o normal*/
+    margin-bottom: .5rem;
+    color: #5e17eb;
+}
+.Home-Title h1{
+font-size: 300%;
+font-weight: bold;
+margin: 0px;
+padding: 10px 0px;
+}
+.Home-Title h2{
+    font-size: 200%;
+    margin: 0px;
+    }
+    /* animacion para se sobre escriba */
+.Home-Title h2 span{
+    color: #5e17eb;
+    position: relative;/*para definir el lugar*/
+}
+
+.Home-Title h2 span::after{
+content: "";
+border-left: 3px solid #5e17eb;/*el borde*/
+background: #05001b;
+right: 0;
+height: 100%;
+position: absolute;/*ocupa el lugar definido el relative del padre*/
+animation: maquinaescribir 2s infinite alternate steps(15);
+/*animacion se pone la variable maquinaescribir*/
+/*el steps se pone de acuerdo a la letra de caracter */
+}
+@keyframes maquinaescribir{
+    from{/*fin ocupara todo el borde*/
+        width: 100%;
+    }
+    to{/*inicio comienza de 0*/
+        width: 0;
+    }
+}
+
+.Home-Parrafo{
+    padding:5px 0px;
+}
+.Home-Parrafo p{
+    font-size: 120%;
+    font-weight: normal;
+    margin: 0px;
+}
+.Home-Parrafo p a{
+    color: #5e17eb;
+    text-decoration: none;
+
+}
+.Home-social{
+    margin-top: 15px;
+}
+.social-link{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+    padding: 20px 10px;
+    background-repeat: no-repeat;
+}
+.social-link.facebook{
+    background-image: url(/img/facebook.svg);
+}
+.social-link.github{
+    background-image: url(/img/github.svg);
+}
+.social-link.instagram{
+    background-image: url(/img/instagram.svg);
+}
+@media screen and (max-width: 914px){
+    .Home-Container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Home-Container img{
+margin: 0px;
+    }
+    .Home-Title h3, h2, h1{
+        font-size: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+.Home-Title h3{
+margin-top: 20px;
+}
+.Home-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+    .Home-Parrafo{
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .Home-Title h1{
+        font-size: 30px;
+    }   
+    .Home-Title h2{
+        font-size: 20px;
+        font-weight: normal;    
+    }   
+    .Home-Title h3{
+        font-size: 25px;
+    }   
+    } 
+
+    /* ---------------------comienza la seccion de acerca de mi */
+    .About{
+   background-color: #05001b;
+   text-align: center;
+   /* margin-bottom: 120px; */
+   
+}
+.About-Container{
+    padding-top: 70px;
+}
+.About h2{
+    margin: 0px;
+    font-weight: bold;/*poner letra en negrita*/
+    font-size: 35px;/*tamaño de letra*/
+}
+.About h2::after{
+    content: "";/*pondremos margen*/
+    display: block;/*para que este abajo*/
+    width: 100px;
+    height: 5px;/*grozor del subrrayado*/
+    background: #5e17eb;
+    margin: 10px auto 40px;
+}
+.About-Description{
+    display: flex;
+    justify-content: space-between;
+}
+.About-Hello{
+    text-align: justify;
+    width: 480px;
+    height: 650px;
+    margin: 0px 80px 0px 0px;
+}
+.About-Hello h4{
+    font-size: 23px;/*tamaño de letra*/
+    margin: 18px 0px;
+}
+.About-Hello h3{
+    font-size: 25px;
+    margin: 0px 0px 20px 0px;
+}
+.About-Hello p{
+    line-height: 2.5em;/*espacio entre horaciones*/
+}
+
+.About-Form{
+    text-align: left;
+    width: 490px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+.About-Form h4{
+    font-size: 23px;
+    margin: 18px 0px;
+}
+.About-FormContainer .row{
+    display: flex;
+}
+.size{
+    height: 101px;
+    width: 106px;
+    margin: 10px;
+    background: rgba(94, 23, 235, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 35px;
+}
+.size a{
+    color: white;
+}
+.About-Form figure img{
+    margin-bottom: 15px;
+    height: 50px;
+    width: 50px;
+}
+.size:hover img{
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    opacity: 0.8;
+}
+.html::after{
+    content: "Html 5";
+    align-items: center;
+    color: white;
+}
+
+.css::after{
+    content: "Css3";
+    color: white;
+    text-align: center;
+    }
+    .javascript::after{
+        content: "javascript";
+        color: white;
+        text-align: center;
+        }
+        .sass::after{
+            content: "sass";
+            color: white;
+            text-align: center;
+            }
+            .react::after{
+                content: "react";
+                color: white;
+                text-align: center;
+                }
+                .git::after{
+                    content: "git";
+                    color: white;
+                    text-align: center;
+                    }
+                    .mysql::after{
+                        content: "mysql";
+                        color: white;
+                        text-align: center;
+                        }
+                        .laravel::after{
+                            content: "laravel";
+                            color: white;
+                            text-align: center;
+                            }
+                        .php::after{
+                            content: "php";
+                            color: white;
+                            text-align: center;
+                            }
+.Portfolio-ImageContainer:hover img{
+
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    opacity: 0.8;
+}
+@media screen and (max-width:1003px){
+   .About-Hello h3{
+       font-size: 18px;
+   }
+    .About-Hello p {
+font-size: 15px;
+    }
+}
+@media screen and (max-width: 914px){
+    .About-Container h2{
+        flex-direction: column;
+    }
+    .About-Description{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }    
+    .About-Hello{
+        margin: 0px;
+        width: 520px;
+        height: 400px;
+    }
+    .About-FormContainer, .size{
+        height: 80px;
+    }
+    .About-Form{
+        width: 520px;
+    }
+    }
+    @media screen and (max-width: 768px){
+        .About-Container h2{
+            font-size: 30px;
+        }
+        .About-Container h2::after{
+            margin: 10px auto 25px;
+        }
+        .About-Hello{
+            width: 420px;
+        }
+.About-Hello h4{
+    font-size: 20px;
+}
+.About-Hello h3{
+    font-size: 20px;
+}
+.About-Hello p{
+    line-height: 2.1em;/*espacio entre horaciones*/
+
+}
+.About-Form{
+    width: 470px;
+}
+    }
+/* ------------INICIO DE MIS SERVICIO--------------------------------------- */
+
+.Services{
+    background-color: #05001b;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.Services-Container{
+    /* display: flex; */
+    padding-top:70px;
+}
+.Service-TxtContainer h4{
+    font-size: 22px;
+}
+.Service-Container{
+    margin-bottom: 35px;
+}
+.Service-Container h2{
+    margin: 0px;
+    font-weight: bold;
+    font-size: 35px;
+}
+.Service-Container h2::after{
+    content: "";/*pondremos margen*/
+    display: block;/*para que este abajo*/
+    width: 100px;
+    height: 5px;/*grozor del subrrayado*/
+    background: #5e17eb;
+    margin: 10px auto 40px;
+}
+.Service-fila{
+    display: flex;
+    justify-content: space-between;
+}
+.Service{
+    padding: 15px;
+    width: 300px;
+    height: 280px;
+    /* box-shadow: 60px -16p ; */
+    background: rgba(94, 23, 235, 0.1);
+}
+.Service-TxtContainer p{
+text-align: center;
+}
+.Service-ImgContainer{
+    margin: 0px;
+}
+
+/* .Service-Img{
+    max-width:150px;
+} */
+@media screen and (max-width: 1363px){
+    .Service{
+        height: 280px;
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 1166px){
+    .Service{
+        height: 280px;
+        width: 200px;
+    }
+    .Service-Container P{
+    font-size: 15px;
+    }
+    
+}
+
+@media screen and (max-width: 1004px){
+    .Service{
+        height: 280px;
+        width: 180px;
+    }
+
+}
+@media screen and (max-width: 914px) {
+    .Service-Container h2{
+    flex-direction: column;
+    }
+    .Service-Container h2::after{
+        margin: 0px;
+        }
+}
+@media screen and (max-width: 881px){
+    .Service{
+        height: 280px;
+        width: 150px;
+    }
+    .Service-Container p{
+        font-size: 15px;
+
+    }
+    .Service-TxtContainer p{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Service-fila{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Service-fila article{
+        margin-bottom: 30px;
+    }
+    .Service{
+        height: 280px;
+        width: 250px;
+    }
+}
+/* ------------------inicio del portafolio--------------- */
+.Potfolio{
+    background-color: #05001b;
+    text-align: center;
+    display: flex;
+}
+.Potfolio-Container{
+    margin-top: 75px;
+
+}
+.Potfolio h2{
+    margin: 0px;
+    font-weight: bold;/*poner letra en negrita*/
+    font-size: 35px;/*tamaño de letra*/
+
+}
+.Potfolio h2::after{
+    content: "";/*pondremos margen*/
+    display: block;/*para que este abajo*/
+    width: 100px;
+    height: 5px;/*grozor del subrrayado*/
+    background: #5e17eb;
+    margin: 10px auto 40px;
+
+}
+.Portfolio-Container{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    padding: 0 0 50px 0;
+}
+.Portfolio-ImageContainer{
+    width: 32%;
+    height: 250px;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;/*para que no desborde de la caja*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.Portfolio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;/*para que no se pierda la calidad de la img*/
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+}
+.Portfolio-Detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(131, 0, 218, 0.466);
+    width: 100%;
+    height: 0%;
+    transition: .5s ease;
+    overflow: hidden;
+}
+.Portfolio-Detail h4{
+    
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.Portfolio-Detail a{
+    color: white;
+    text-decoration: none;
+}
+.Experience-Url{
+    padding: 5px 10px;
+    margin:auto;
+    background: #05001b;
+}
+.Portfolio-ImageContainer:hover img{
+
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+    opacity: 0.8;
+}
+.Portfolio-ImageContainer:hover .Portfolio-Detail{
+height: 100%;
+cursor: pointer;
+}
+@media screen and (max-width: 914px){
+    .Potfolio-Container h2{
+        flex-direction: column;
+    }
+    .Potfolio-Container p{
+        display: none;
+    }
+    .Portfolio-Url {
+        display: flex;
+        font-size: 14px;
+        
+    }
+}
+@media screen and (max-width: 768px){
+    .Portfolio-Container{
+        margin: auto;
+    }
+    .Portfolio-ImageContainer{
+width: 160px;
+    }
+    .Portfolio-Url{
+        display: flex;
+        font-size: 12px;
+    }
+}
+/* -----------------inicio de contactame ---------------*/
+.Contact{
+    background-color: #5e17eb;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;/*para poner en columna la seccion de contacto*/
+    text-align: center;
+    color: white;
+    /* z-index: 500; */
+}
+.Contact-Title h2{
+    font-size: 35px;
+    margin: 0px;
+    font-weight: bold;
+}
+.Contact-Form{
+    overflow: hidden;/*cuando un elemento se desborda
+    de la caja osea esto overflow hidden se usa para
+    que no se desborde el texarea de contact-form  */
+    width: 700px;
+    margin-top: 20px;
+}
+.Contact-Form .row{
+    width: 100%;/*ocupe todo de su padre osea los 700px*/
+    display: flex;
+}
+.Contact-Form .row .col50{
+    margin: 10px;/*para separar las input*/
+    width: 50%;
+}
+.Contact-Form .row .col100{
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+}
+.Contact-Form .row input, textarea{
+    width: 100%;
+    padding: 14px 0px 14px 5px;    
+    border: none;/*para que no tenga borde las input*/
+    /* outline: dashed red; */
+    outline: none;
+    /* Los bordes y los contornos son muy similares. Sin embargo, 
+    los contornos difieren de los bordes de la siguiente manera */
+    /* outline=Los contornos no ocupan espacio, son dibujados por encima del elemento. Por lo tanto, su aparición u ocultamiento no causa un redibujado de las cajas. No suma en el tamaño 
+    de la caja y no hay movimiento o desplazamiento de los elementos como con border. */
+    background: #F0F7F4;
+    font-size: 16px;/*tamaña de letra*/
+    resize: none;
+    /*borra la herramienta de textarea que permite ampliar su tamaños*/
+border-radius: 8px;
+}
+.Contact-Form .row textarea{
+    height: 100px;
+}
+.Conta-Url{
+    background: #05001b;
+    color: white;
+    position: relative;
+    border-radius: 8px;
+    padding: 10px 30px;
+    text-decoration: none;/*para borrar el subrayado*/
+    font-weight: bold;/*para que la letra sea negrita*/
+    letter-spacing: 2px;/*espacio entre las letras*/
+    border:none;
+}
+.Conta-Url:hover{
+    background: #5e17eb;
+    box-shadow: 2px 1px  black;
+
+}
+@media screen and (max-width: 750px){
+.Contact{
+    height: 650px;
+}
+    .Contact-Title h2{
+margin: 25px 0px 0px 0px;
+font-size: 30px;
+  }
+  .Contact-Title p{
+      margin-bottom: 0px;
+  }
+    .Contact-Form  .row{
+        flex-direction: column;
+    justify-content: center;
+    
+    align-items: center;
+    }
+    .col100 textarea{
+        width: 355px;
+    }
+
+}
+
+/*------------------ inicio del footer----------------- */
+.footer{
+    background-color: #5e17eb;
+    align-items: center;/*alineamiento vertical*/
+    display: flex;
+    color: white;
+    flex-direction: column;/*para que este en columna*/
+}
+.social{
+    margin-top: 10px;
+}
+.social-link{
+    display: inline-block;/*para que me muestre
+    las imagenes de redes sociales*/
+    width: 50px;
+    height: 50px;
+    margin: 0px 10px;
+    background-size: 50px 50px;/*para poner tamaño*/
+    padding: 0px;
+}
+.social-link.twitter{
+    background-image: url(../img/twitter.svg);
+}
+.social-link.facebook{
+    background-image: url(../img/facebook.svg);
+}
+.social-link.github{
+    background-image: url(../img/github.svg);
+}
+.social-link.instagram{
+    background-image: url(../img/instagram.svg);
+}
+/* .footer-portafolio img{
+    vertical-align: middle;*/
+    /*cuando usamos img y queremos alinear
+    en el centro la img no cuatra con el texto para que cuadre se 
+    usa vertical-align: middle;*/
+/* } */
+.footer-designed p{
+    text-align: center;
+}
+.footer-designed a{
+    color: white;
+/* display: flex; */
+    /* text-decoration: none;*/
+}
+@media screen and (max-width: 750px){
+    .social-link{
+        width: 40px;
+        height: 40px;
+        /* margin: 0px 10px; */
+        background-size: 40px 40px;/*para poner tamaño*/
+       
+    }
+}
