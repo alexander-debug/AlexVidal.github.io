@@ -21,10 +21,12 @@ html{
     del menu como si se estuviera moviendo*/
 }
 .margen-container{
-    margin: 0px 10%;
-    /* max-width: 1080px; */
+    width: 100%;
+    max-width: 1080px;
     /*El maximo de zoom que alcanza*/
-    /* margin: auto;automatico el margen */
+    margin: auto;
+    overflow: hidden;
+    /* automatico el margen */
 }
 
 /* ----------------------Comienza el encabezado */
@@ -457,11 +459,16 @@ margin-top: 20px;
     /* ---------------------comienza la seccion de acerca de mi */
     .About{
    background-color: #05001b;
-   text-align: center;
    /* margin-bottom: 120px; */
+   /* display: flex; */
+   /* justify-content: center; */
    
 }
 .About-Container{
+    text-align: center;
+    /* margin: 0; */
+    flex-direction: column;
+    justify-content: center;
     padding-top: 70px;
 }
 .About h2{
@@ -483,9 +490,9 @@ margin-top: 20px;
 }
 .About-Hello{
     text-align: justify;
-    width: 480px;
+    width: 45%;
     height: 650px;
-    margin: 0px 80px 0px 0px;
+    /* margin: 0px 80px 0px 0px; */
 }
 .About-Hello h4{
     font-size: 23px;/*tamaño de letra*/
@@ -501,7 +508,7 @@ margin-top: 20px;
 
 .About-Form{
     text-align: left;
-    width: 490px;
+    width: 45%;
     height: 650px;
     display: flex;
     flex-direction: column;
@@ -510,12 +517,12 @@ margin-top: 20px;
     font-size: 23px;
     margin: 18px 0px;
 }
-.About-FormContainer .row{
-    display: flex;
+.About-FormContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 33.3%);
 }
 .size{
-    height: 101px;
-    width: 106px;
     margin: 10px;
     background: rgba(94, 23, 235, 0.1);
     display: flex;
@@ -540,7 +547,7 @@ margin-top: 20px;
     opacity: 0.8;
 }
 .html::after{
-    content: "Html 5";
+    content: "Html";
     align-items: center;
     color: white;
 }
@@ -551,37 +558,37 @@ margin-top: 20px;
     text-align: center;
     }
     .javascript::after{
-        content: "javascript";
+        content: "Javascript";
         color: white;
         text-align: center;
         }
         .sass::after{
-            content: "sass";
+            content: "Sass";
             color: white;
             text-align: center;
             }
             .react::after{
-                content: "react";
+                content: "React";
                 color: white;
                 text-align: center;
                 }
                 .git::after{
-                    content: "git";
+                    content: "Git";
                     color: white;
                     text-align: center;
                     }
                     .mysql::after{
-                        content: "mysql";
+                        content: "Mysql";
                         color: white;
                         text-align: center;
                         }
                         .laravel::after{
-                            content: "laravel";
+                            content: "Laravel";
                             color: white;
                             text-align: center;
                             }
                         .php::after{
-                            content: "php";
+                            content: "Php";
                             color: white;
                             text-align: center;
                             }
@@ -594,7 +601,7 @@ margin-top: 20px;
     opacity: 0.8;
 }
 @media screen and (max-width:1003px){
-   .About-Hello h3{
+    .About-Hello h3{
        font-size: 18px;
    }
     .About-Hello p {
@@ -602,56 +609,48 @@ font-size: 15px;
     }
 }
 @media screen and (max-width: 914px){
+    .About{
+        margin: 0 70px;
+    }
     .About-Container h2{
         flex-direction: column;
     }
-    .About-Description{
+    .About-Description, .About-Container{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }    
     .About-Hello{
         margin: 0px;
-        width: 520px;
+        width: 100%;
         height: 400px;
     }
-    .About-FormContainer, .size{
-        height: 80px;
+    .size{
+        width: 45%;
     }
     .About-Form{
-        width: 520px;
+        width: 100%;
     }
     }
-    @media screen and (max-width: 768px){
-        .About-Container h2{
-            font-size: 30px;
+    @media screen and (max-width: 615px){
+        
+        .About{
+            margin: 0 25px;
         }
-        .About-Container h2::after{
-            margin: 10px auto 25px;
+    }
+    @media screen and (max-width: 499px){
+        .About{
+            margin: 0 8px;
         }
-        .About-Hello{
-            width: 420px;
+        .size{
+            width: 30%;
         }
-.About-Hello h4{
-    font-size: 20px;
-}
-.About-Hello h3{
-    font-size: 20px;
-}
-.About-Hello p{
-    line-height: 2.1em;/*espacio entre horaciones*/
-
-}
-.About-Form{
-    width: 470px;
-}
     }
 /* ------------INICIO DE MIS SERVICIO--------------------------------------- */
 
 .Services{
-    background-color: #05001b;
+    /* background-color: #05001b; */
     text-align: center;
-    padding-bottom: 50px;
 }
 .Services-Container{
     /* display: flex; */
@@ -677,8 +676,9 @@ font-size: 15px;
     margin: 10px auto 40px;
 }
 .Service-fila{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 33.4%);
+    height: 320px;
 }
 .Service{
     padding: 15px;
@@ -694,46 +694,32 @@ text-align: center;
     margin: 0px;
 }
 
-/* .Service-Img{
+.Service-Img{
     max-width:150px;
-} */
-@media screen and (max-width: 1363px){
-    .Service{
-        height: 280px;
-        width: 240px;
-    }
 }
 
-@media screen and (max-width: 1166px){
+@media screen and (max-width: 1100px) {
     .Service{
-        height: 280px;
-        width: 200px;
+        height: 240px;
+        width: 260px;
     }
-    .Service-Container P{
-    font-size: 15px;
+    .Service-TxtContainer p{
+        font-size: 15px;
     }
-    
+    .Service-TxtContainer h4{
+        margin: 20px 0 0 0;
+    }
 }
-
-@media screen and (max-width: 1004px){
+@media screen and (max-width: 960px){
+    .Services{
+        margin:0 25px;
+    }
+    .Services-Container h2{
+        flex-direction: column;
+    }
     .Service{
-        height: 280px;
+        height: 270px;
         width: 180px;
-    }
-
-}
-@media screen and (max-width: 914px) {
-    .Service-Container h2{
-    flex-direction: column;
-    }
-    .Service-Container h2::after{
-        margin: 0px;
-        }
-}
-@media screen and (max-width: 881px){
-    .Service{
-        height: 280px;
-        width: 150px;
     }
     .Service-Container p{
         font-size: 15px;
@@ -745,13 +731,21 @@ text-align: center;
 }
 
 @media screen and (max-width: 768px){
+    
+    
     .Service-fila{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        grid-template-columns: repeat(2,50%);
+        height: 700px;
     }
-    .Service-fila article{
-        margin-bottom: 30px;
+    .Service{
+        margin: auto;
+    }    
+}
+@media screen and (max-width: 535px){
+    .Service-fila{
+        
+        grid-template-columns: repeat(1,100%);
+        height: 1200px;
     }
     .Service{
         height: 280px;
@@ -766,7 +760,6 @@ text-align: center;
 }
 .Potfolio-Container{
     margin-top: 75px;
-
 }
 .Potfolio h2{
     margin: 0px;
@@ -812,7 +805,7 @@ text-align: center;
 }
 .Portfolio-Detail {
     position: absolute;
-    bottom: 0;
+    bottom: 0; 
     left: 0;
     background: rgba(131, 0, 218, 0.466);
     width: 100%;
@@ -865,12 +858,25 @@ cursor: pointer;
         margin: auto;
     }
     .Portfolio-ImageContainer{
-width: 160px;
+width: 32%;
     }
     .Portfolio-Url{
         display: flex;
         font-size: 12px;
     }
+}
+
+@media screen and (max-width: 592px){
+    
+    .Portfolio-ImageContainer{
+        width: 42%;
+            }
+}
+@media screen and (max-width: 488px){
+    
+    .Portfolio-ImageContainer{
+        width: 80%;
+            }
 }
 /* -----------------inicio de contactame ---------------*/
 .Contact{
@@ -947,6 +953,10 @@ border-radius: 8px;
 @media screen and (max-width: 750px){
 .Contact{
     height: 650px;
+}
+.Contact-Title{
+    width: 50%;
+    margin: auto;
 }
     .Contact-Title h2{
 margin: 25px 0px 0px 0px;
